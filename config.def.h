@@ -17,7 +17,7 @@ static const char buttonbar[]       = " ";
 #define ICONSIZE                    (bh - 12)   /* icon size */
 #define ICONSPACING                 10 /* space between icon and title */
 static const char *fonts[]          = { "Aptos:style=SemiBold:size=15",
-										"JetBrainsMono Nerd Font:style=ExtraBold:size=11",
+										"JetBrainsMono Nerd Font:style=ExtraBold:size=13",
 										"Aptos:size=14",
 										"JetBrainsMono Nerd Font:size=16" };
 
