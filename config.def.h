@@ -21,11 +21,27 @@ static const char col_gray4[]       = "#eeeeee";
 static const char col_blue[]        = "#61afef";
 static const char col_magenta[]     = "#c678dd";
 static const char col_cyan[]        = "#0101a1";
-static const char *colors[][4]      = {
+
+static char c000000[]               = "#000000";
+
+static char normfgcolor[]           = "#bbbbbb";
+static char normbgcolor[]           = "#222222";
+static char normbordercolor[]       = "#444444";
+static char normfloatcolor[]        = "#444444";
+
+static char selfgcolor[]           = "#eeeeee";
+static char selbgcolor[]           = "#005577";
+static char selbordercolor[]       = "#61afef";
+static char selfloatcolor[]        = "#c678dd";
+
+static char ltsymbolfgcolor[]           = "#ffdd00";
+static char ltsymbolbgcolor[]           = "#222222";
+
+static char *colors[][4]      = {
 	/*               		fg           bg         border   */
-	[SchemeNorm] 		= { col_gray3,   col_gray1, col_gray2, col_gray2   },
-	[SchemeSel]  		= { col_gray4,   col_cyan,  col_blue,  col_magenta },
-	[SchemeLtSymbol]	= { col_magenta, col_gray1, col_black, col_black   },
+	[SchemeNorm] 		= { normfgcolor,        normbgcolor,        normbordercolor,    normfloatcolor   },
+	[SchemeSel]  		= { selfgcolor,         selbgcolor,         selbordercolor,     selfloatcolor },
+	[SchemeLtSymbol]	= { ltsymbolfgcolor,    ltsymbolbgcolor,    c000000,            c000000   },
 };
 
 static const unsigned int baralpha = 0xd0;
