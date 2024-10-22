@@ -97,7 +97,8 @@ enum {
 enum { 
     SchemeNorm, 
     SchemeSel,
-    SchemeLtSymbol
+    SchemeLtSymbol,
+    SchemeStButton
 }; /* color schemes */
 enum { 
     NetSupported, 
@@ -990,7 +991,10 @@ drawbar(Monitor *m)
 
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
+		drw->fonts = drw->fonts->next;
+		drw->fonts = drw->fonts->next;
 		tw = m->ww - drawstatusbar(m, bh, stext);
+		drw->fonts = cur;
 	}
 
 	for (c = m->clients; c; c = c->next) {
@@ -999,9 +1003,14 @@ drawbar(Monitor *m)
 			urg |= c->tags;
 	}
 	x = 0;
+	drw->fonts = drw->fonts->next;
+	drw->fonts = drw->fonts->next;
+	drw->fonts = drw->fonts->next;
 	w = TEXTW(buttonbar);
-	drw_setscheme(drw, scheme[SchemeNorm]);
+	drw_setscheme(drw, scheme[SchemeStButton]);
 	x = drw_text(drw, x, 0, w, bh, lrpad / 2, buttonbar, 0);
+	drw->fonts = cur;
+
 	for (i = 0; i < LENGTH(tags); i++) {
 		tagtext = occ & 1 << i ? alttags[i] : tags[i];
 		w = TEXTW(tagtext);
@@ -1540,6 +1549,9 @@ loadxrdb()
         
         XRDB_LOAD_COLOR("dwm.ltsymbolfgcolor", ltsymbolfgcolor);
         XRDB_LOAD_COLOR("dwm.ltsymbolbgcolor", ltsymbolbgcolor);
+
+        XRDB_LOAD_COLOR("dwm.stbuttonfgcolor", stbuttonfgcolor);
+        XRDB_LOAD_COLOR("dwm.stbuttonbgcolor", stbuttonbgcolor);
 
         XRDB_LOAD_COLOR("color0",  termcol0);
         XRDB_LOAD_COLOR("color1",  termcol1);

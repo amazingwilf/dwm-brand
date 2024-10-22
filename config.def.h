@@ -16,19 +16,12 @@ static const int sidepad            = 10;       /* horizontal padding of bar */
 static const char buttonbar[]       = " ";
 #define ICONSIZE                    (bh - 12)   /* icon size */
 #define ICONSPACING                 10 /* space between icon and title */
-static const char *fonts[]          = { "Noto Sans:style=Medium:size=11",
-										"JetBrainsMono Nerd Font:style=ExtraBold:size=10" };
+static const char *fonts[]          = { "Aptos:style=SemiBold:size=15",
+										"JetBrainsMono Nerd Font:style=ExtraBold:size=11",
+										"Aptos:size=14",
+										"JetBrainsMono Nerd Font:size=16" };
 
 #include "termcolors.h"
-
-static const char col_black[]       = "#000000";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_blue[]        = "#61afef";
-static const char col_magenta[]     = "#c678dd";
-static const char col_cyan[]        = "#0101a1";
 
 static char c000000[]               = "#000000";
 
@@ -45,11 +38,15 @@ static char selfloatcolor[]        = "#c678dd";
 static char ltsymbolfgcolor[]           = "#ffdd00";
 static char ltsymbolbgcolor[]           = "#222222";
 
+static char stbuttonfgcolor[]           = "#61afef";
+static char stbuttonbgcolor[]           = "#222222";
+
 static char *colors[][4]      = {
 	/*               		fg           bg         border   */
 	[SchemeNorm] 		= { normfgcolor,        normbgcolor,        normbordercolor,    normfloatcolor   },
 	[SchemeSel]  		= { selfgcolor,         selbgcolor,         selbordercolor,     selfloatcolor },
 	[SchemeLtSymbol]	= { ltsymbolfgcolor,    ltsymbolbgcolor,    c000000,            c000000   },
+	[SchemeStButton]	= { stbuttonfgcolor,    stbuttonbgcolor,    c000000,            c000000   },
 };
 
 static const unsigned int baralpha = 0xd0;
@@ -60,12 +57,13 @@ static const unsigned int alphas[][4]      = {
     [SchemeNorm] = { OPAQUE, baralpha, borderalpha, borderalpha },
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha, borderalpha },
 	[SchemeLtSymbol]  = { OPAQUE, baralpha, borderalpha, borderalpha },
+	[SchemeStButton]  = { OPAQUE, baralpha, borderalpha, borderalpha },
 };
 
 
 /* tagging */
 static const char *tags[] = { "·", "·", "·", "·", "·" };
-static const char *alttags[] = { "A", "B", "C", "D", "E" };
+static const char *alttags[] = { "1", "2", "3", "4", "5" };
 
 static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
@@ -127,6 +125,7 @@ static const char *termcmd[]  	= { "alacritty", NULL };
 static const char *roficmd[]  	= { "rofi", "-show", "drun", NULL };
 static const char *webcmd[]		= { "firefox", NULL };
 static const char *fmcmd[]		= { "thunar", NULL };
+static const char *colpickcmd[]	= { "colorpicker", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -134,6 +133,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_space,  spawn,          {.v = roficmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = webcmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = fmcmd } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = colpickcmd } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
