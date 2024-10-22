@@ -3,7 +3,7 @@ Xft.dpi:        144
 Xcursor.theme:  Breeze_Snow
 Xcursor.size:   36
 
-#include ".Xresources.d/onedark.xrdb"
+#include ".Xresources.d/tokyonight.xrdb"
 
 dwm.normfgcolor:        cwhite1
 dwm.normbgcolor:        cblack
@@ -13,7 +13,10 @@ dwm.normfloatcolor:     cgray3
 dwm.selfgcolor:         cwhite2
 dwm.selbgcolor:         cblack
 dwm.selbordercolor:     cblue
-dwm.selfloatcolor:      cpink
+dwm.selfloatcolor:      cgreen
 
 dwm.ltsymbolfgcolor:    cyellow
 dwm.ltsymbolbgcolor:    cblack
+
+dwm.stbuttonfgcolor:	cgreen
+dwm.stbuttonbgcolor:	#aa0000
