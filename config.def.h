@@ -61,6 +61,15 @@ static const unsigned int alphas[][4]      = {
 };
 
 
+static const char *const autostart[] = {
+	"/usr/libexec/polkit-gnome-authentication-agent-1", NULL,
+	"dunst", NULL,
+	"nitrogen", "--restore", NULL,
+	"picom", "-b", NULL,
+	"slstatus", NULL,
+	NULL /* terminate */
+};
+
 /* tagging */
 static const char *tags[] = { "·", "·", "·", "·", "·" };
 static const char *alttags[] = { "1", "2", "3", "4", "5" };
