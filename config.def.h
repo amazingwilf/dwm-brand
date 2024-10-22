@@ -13,6 +13,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 8;        /* 2 is the default spacing around the bar's font */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
+static const char buttonbar[]       = " ";
 static const char *fonts[]          = { "Noto Sans:style=Medium:size=11",
 										"JetBrainsMono Nerd Font:style=ExtraBold:size=10" };
 
@@ -174,6 +175,7 @@ static const Key keys[] = {
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
+	{ ClkButton,		0,		Button1,	spawn,		{.v = roficmd } },
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
