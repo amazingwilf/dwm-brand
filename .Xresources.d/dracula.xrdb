@@ -1,0 +1,12 @@
+#define cblack		#21222C
+#define cwhite1		#d8d8d2
+#define cwhite2		#f8f8f2
+#define cgray2		#282a36
+#define cgray3		#44475a
+#define cgray4		#282a36
+#define cblue		#bd93f9 
+#define cgreen		#50fa7b
+#define cred		#ff5555
+#define corange		#ffb86c
+#define cyellow		#f1fa8c
+#define cpink		#ff79c6
