@@ -14,8 +14,6 @@ static const int user_bh            = 8;        /* 2 is the default spacing arou
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
 static const char buttonbar[]       = " ";
-#define ICONSIZE                    (bh - 12)   /* icon size */
-#define ICONSPACING                 10 /* space between icon and title */
 static const char *fonts[]          = { "Noto Sans:style=Medium:size=11",
 										"JetBrainsMono Nerd Font:style=ExtraBold:size=10" };
 
