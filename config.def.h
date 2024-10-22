@@ -13,6 +13,9 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 8;        /* 2 is the default spacing around the bar's font */
 static const char *fonts[]          = { "Noto Sans:style=Medium:size=11",
 										"JetBrainsMono Nerd Font:style=ExtraBold:size=10" };
+
+#include "termcolors.h"
+
 static const char col_black[]       = "#000000";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -142,6 +145,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
+	{ MODKEY,                       XK_F5,     xrdb,           {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_Right,  viewnext,       {0} },
