@@ -88,6 +88,7 @@ static const Rule rules[] = {
 	{ .class = "Alacritty", .tags = 1 << 0 },
 	{ .class = "Firefox", .tags = 1 << 1 },
 	{ .class = "Thunar", .tags = 1 << 2 },
+	{ .class = "spterm", .scratchkey = 't', .isfloating = 1, .floatpos = "50% 50% 85% 85%" },
 };
 
 /* layout(s) */
@@ -136,6 +137,8 @@ static const char *webcmd[]		= { "firefox", NULL };
 static const char *fmcmd[]		= { "thunar", NULL };
 static const char *colpickcmd[]	= { "colorpicker", NULL };
 
+static const char *sptermcmd[] = { "t", "alacritty", "--class", "spterm,spterm", NULL }; 
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
@@ -143,6 +146,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_w,      spawn,          {.v = webcmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = fmcmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = colpickcmd } },
+	{ MODKEY,                       XK_grave,  togglescratch,  {.v = sptermcmd } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
