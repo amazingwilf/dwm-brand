@@ -1,5 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+#include "termcolors.h"
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -21,7 +24,6 @@ static const char *fonts[]          = { "Aptos:style=SemiBold:size=15",
 										"Aptos:size=14",
 										"JetBrainsMono Nerd Font:size=16" };
 
-#include "termcolors.h"
 
 static char c000000[]               = "#000000";
 
@@ -71,8 +73,8 @@ static const char *const autostart[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "·", "·", "·", "·", "·" };
-static const char *alttags[] = { "1", "2", "3", "4", "5" };
+static const char *tags[] = { "·", "·", "·", "·", "·", "·" , "·", "·"  };
+static const char *alttags[] = { "", "", "", "", "", "", "", "" };
 
 static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
@@ -139,6 +141,14 @@ static const char *webcmd[]		= { "firefox", NULL };
 static const char *fmcmd[]		= { "thunar", NULL };
 static const char *colpickcmd[]	= { "colorpicker", NULL };
 
+static const char *blupcmd[]	= { "brightness", "--inc", NULL };
+static const char *bldowncmd[]	= { "brightness", "--decc", NULL };
+
+static const char *volmutecmd[]	= { "volume", "--toggle", NULL };
+static const char *micmutecmd[]	= { "volume", "--toggle-mic", NULL };
+static const char *voldowncmd[]	= { "volume", "--dec", NULL };
+static const char *volupcmd[]	= { "volume", "--inc", NULL };
+
 static const char *sptermcmd[] = { "t", "alacritty", "--class", "spterm,spterm", NULL }; 
 
 static const Key keys[] = {
@@ -148,6 +158,15 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_w,      spawn,          {.v = webcmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = fmcmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = colpickcmd } },
+
+	{ 0,							XF86XK_MonBrightnessUp,		spawn,		{.v = blupcmd } },
+	{ 0,							XF86XK_MonBrightnessDown,	spawn,		{.v = bldowncmd } },
+	{ 0, 						XF86XK_AudioMute, 			spawn, {.v = volmutecmd } },
+	{ 0, 						XF86XK_AudioMicMute, 		spawn, {.v = micmutecmd } },
+	{ 0, 						XF86XK_AudioLowerVolume, 	spawn, {.v = voldowncmd } },
+	{ 0, 						XF86XK_AudioRaiseVolume, 	spawn, {.v = volupcmd } },
+
+
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = sptermcmd } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
